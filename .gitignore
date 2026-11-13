@@ -12,6 +12,7 @@ __pycache__/
 # Training, evaluation, and prediction outputs
 work_dirs/
 *_work_dirs/
+WDMF-Net_work_dirs/
 checkpoint/
 checkpoints/
 runs/

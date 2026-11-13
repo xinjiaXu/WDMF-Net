@@ -486,9 +486,9 @@ class MSA_Module(nn.Module):
 
 # -----------------------------------------------------WDMFNet---------------------------------------------------------#
 class BaseNet(nn.Module):
-    def __init__(self):
+    def __init__(self, pretrained=True):
         super(BaseNet, self).__init__()
-        self.encoder = mobilenet_v2.mobilenet_v2(pretrained=True)
+        self.encoder = mobilenet_v2.mobilenet_v2(pretrained=pretrained)
         self.encoder_fusion = EncoderFusion(inc=[16, 24, 32, 96, 320], midc=32, outc=64)
         self.diff = DiffModule(64)
         self.decoder_fusion = DecoderFusion(64)
