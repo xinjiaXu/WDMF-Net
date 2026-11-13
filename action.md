@@ -20,6 +20,8 @@ bash setup_server_env.sh
 conda activate wdmf-rs
 ```
 
+`requirements_server.txt` pins setuptools to 80.9.0 because `pytorch-wavelets` imports `pkg_resources`.
+
 ## Parameters and FLOPs
 
 WDMF-Net's README specifies 256x256 input patches. The profiler uses batch 1, a paired RGB input, and random initialization; ImageNet MobileNet weights are not needed to measure parameter/FLOP counts. `fvcore` unsupported operators are listed in the JSON, and those operations are excluded from its FLOP total.
