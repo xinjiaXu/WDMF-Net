@@ -12,7 +12,10 @@ if conda env list | awk 'NR > 2 {print $1}' | grep -Fxq "$env_name"; then
 fi
 
 conda create -y -n "$env_name" python=3.10 pip
+# Conda hooks may reference unset variables while switching from another environment.
+set +u
 conda activate "$env_name"
+set -u
 python -m pip install --upgrade pip
 python -m pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 \
   --index-url https://download.pytorch.org/whl/cu128
